@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-conten padding-y" style="min-height:84vh">
+<!-- ============================ COMPONENT LOGIN   ================================= -->
+{% if request.GET.command == 'verification' %}
+    <div class="container mx-auto alert alert-info text-center" role="alert" style="max-width: 400px; margin-top: 100px;">
+        Merci de vous être inscrits, nous avons envoyé un mail de vérification à votre adresse mail [{{ request.GET.email }}]. Merci de finaliser votre inscription !
+        <br><br>
+        Si vérification effectuée : <a href="{% url 'login' %}">se connecter</a>
+    </div>
+{% else %}
+    <div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
+        <div class="card-body">
+            <h4 class="card-title mb-4">Bonjour et bienvenue</h4>
+            {% include 'includes/alerts.html' %}
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email Address" name="email" >
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" name="password" >
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <a href="{% url 'forgot_password' %}" class="float-right">Mot de passe oublié ?</a>
+                </div> <!-- form-group form-check .// -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Se connecter  </button>
+                </div> <!-- form-group// -->    
+            </form>
+        </div> <!-- card-body.// -->
+    </div> <!-- card .// -->
+    <p class="text-center mt-4">N'avez-vous pas de compte? <a href="{% url 'register' %}">S'inscrire</a></p>
+    <br><br><!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+{% endif %}
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+{% endblock content %}
