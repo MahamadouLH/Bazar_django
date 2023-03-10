@@ -73,7 +73,7 @@
                     </div> <!-- price-wrap .// -->
                 </td>
                 <td class="text-right"> 
-                    <a href="{% url 'remove_cart_item' cart_item.product.id cart_item.id %}" onclick="return confirm('Êtes-vous sûrs de vouloir supprimer cet article)" class="btn btn-danger">Supprimer</a>
+                    <a href="{% url 'remove_cart_item' cart_item.product.id cart_item.id %}" onclick="confirm('Êtes-vous sûrs de vouloir supprimer cet article')" class="btn btn-danger">Supprimer</a>
                 </td>
             </td>
         </tr>

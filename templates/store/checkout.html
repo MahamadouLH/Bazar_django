@@ -8,7 +8,7 @@
     <div class="container">
     <!-- ============================ COMPONENT 1 ================================= -->
         <div class="row">
-            <form action="{% url 'checkout' %}" method="POST" class="form-row">
+            <form action="{% url 'place_order' %}" method="POST" class="form-row">
                 {% csrf_token %}
                 <aside class="col-lg-6">
                     <div class="card">
