@@ -176,8 +176,8 @@ MESSAGE_TAGS = {
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'mahamadoulh@gmail.com'
-EMAIL_HOST_PASSWORD = 'mwslajvgayicbaxr'
+EMAIL_HOST_USER = 'mahamadou23lh@gmail.com'
+EMAIL_HOST_PASSWORD = 'bbajtyobrayxaywn'
 EMAIL_USE_TLS = True
 
 # Default primary key field type

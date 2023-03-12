@@ -125,6 +125,7 @@
     var url = "{% url 'payments' %}";
     var orderID = "{{ order.order_number }}";
     var payment_method = "PayPal";
+    var redirect_url = "{% url 'order_complete' %}";
     paypal.Buttons({
         // optional styling for buttons
         // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
@@ -175,7 +176,11 @@
                             payment_method : payment_method,
                             status : details.status,
                         }),
-                    })//.then(response => response.json()).then(data => console.log(data));
+                    }).then((response) => response.json()).then(data => {
+                        /*console.log('Succès : ', data);
+                        console.log('Transaction complète.');*/
+                        window.location.href = redirect_url + '?order_number='+data.order_number+'&payment_id='+data.transID;
+                    });
                 }
                 console.log('Transaction completed');
             };
